@@ -12,7 +12,7 @@ RUN \
   apt-get -y install curl unzip nano git && \
   apt-get -y install build-essential python libpcre3 libpcre3-dev && \
   apt-get -y upgrade && \
-  cd /usr/lib && git clone -b 1.70 https://github.com/danmar/cppcheck && \
+  cd /usr/lib && git clone -b 1.74 https://github.com/danmar/cppcheck && \
   cd cppcheck && \
   make CFGDIR=/usr/lib/cppcheck/cfg HAVE_RULES=yes && \
   make install && \
@@ -23,5 +23,4 @@ RUN \
   apt-get purge -y $(apt-cache search '~c' | awk '{ print $2 }') && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/apt && \
-  rm -rf /var/cache/oracle-jdk8-installer && \
   rm -rf /tmp/*
